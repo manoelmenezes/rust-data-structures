@@ -1,18 +1,8 @@
-use std::collections::HashSet;
-
-fn main() ->Result<(), String> {
-    let mut graph = Graph::new(6);
+fn main() -> Result<(), String> {
+    let mut graph = Graph::new(4);
     graph.add_edge(0, 1)?;
-    graph.add_edge(1, 2)?;
-    graph.add_edge(2, 3)?;
-    graph.add_edge(4, 5)?;
+    graph.add_edge(4, 4)?;
     
-    let c = graph.are_connected(0, 3)?;
-    println!("0 and 3 connected: {}", c);   
-
-    let c = graph.are_connected(3, 4)?;
-    println!("3 and 4 connected: {}", c);
-
     Ok(())
 }    
 
@@ -41,20 +31,9 @@ impl Graph {
         if self.nodes[u][v] {
             return Ok(true);
         }
-        let mut queue = Vec::new();
-        queue.push(u);
-        let mut visited = HashSet::new();
-        while !queue.is_empty() {
-           let current = queue.remove(0);
-           visited.insert(current);
-           if current == v {
-               return Ok(true);
-           }
-           for i in 0..self.n {
-               if self.nodes[current][i] && !visited.contains(&i) {
-                   queue.push(i);
-               }
-           }
+        let mut queue = vec![u; self.n];
+        while queue.len() > 0 {
+        
         }
         Ok(false)
     }
