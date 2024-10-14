@@ -1,4 +1,5 @@
 use std::collections::HashSet;
+use std::collections::VecDeque;
 
 fn main() ->Result<(), String> {
     let mut graph = Graph::new(6);
@@ -41,18 +42,18 @@ impl Graph {
         if self.nodes[u][v] {
             return Ok(true);
         }
-        let mut queue = Vec::new();
-        queue.push(u);
+        let mut queue = VecDeque::new();
+        queue.push_back(u);
         let mut visited = HashSet::new();
         while !queue.is_empty() {
-           let current = queue.remove(0);
+           let current = queue.pop_front().unwrap();
            visited.insert(current);
            if current == v {
                return Ok(true);
            }
            for i in 0..self.n {
                if self.nodes[current][i] && !visited.contains(&i) {
-                   queue.push(i);
+                   queue.push_back(i);
                }
            }
         }
