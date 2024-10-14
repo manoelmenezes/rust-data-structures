@@ -8,14 +8,14 @@ fn main() -> Result<(), String> {
 
 struct Graph {
     n: usize,
-    nodes: Vec<Vec<i32>>,
+    nodes: Vec<Vec<bool>>,
 }
 
 impl Graph {
     pub fn new(n: usize) -> Self {
         Graph {
             n,
-            nodes: vec![vec![-1; n]; n],
+            nodes: vec![vec![false; n]; n],
         }
     }
     
@@ -23,8 +23,8 @@ impl Graph {
         if u >= self.n || v >= self.n {
             return  Err(format!("u and v need to be smaller than {}", self.n));
         }
-        self.nodes[u][v] = 1;
-        self.nodes[v][u] = 1;
+        self.nodes[u][v] = true;
+        self.nodes[v][u] = true;
         
         Ok(())
     }
