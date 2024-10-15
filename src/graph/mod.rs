@@ -1,6 +1,8 @@
 use std::collections::HashSet;
 use std::collections::VecDeque;
 
+pub mod weighted;
+
 pub struct Graph {
     n: usize,
     nodes: Vec<Vec<bool>>,
