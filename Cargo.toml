@@ -1,10 +1,10 @@
 [package]
-name = "rust_data_structures"
+name = "rds"
 version = "0.1.0"
 edition = "2021"
 
 [[bin]]
-name = "graph"
-path = "src/graph.rs"
+name = "main"
+path = "src/main.rs"
 
 [dependencies]
