@@ -8,3 +8,4 @@ name = "main"
 path = "src/main.rs"
 
 [dependencies]
+priority-queue = "2.1.1"
