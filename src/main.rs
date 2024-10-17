@@ -33,19 +33,15 @@ fn main() ->Result<(), String> {
     
     let root:Node<i32> = Node::complete(
         10,
-        Box::new(
-            Node::complete(
-                20,
-                Box::new(Node::leaf(15)),
-                Box::new(Node::leaf(25))
-            )
+        Node::complete(
+            20,
+            Node::leaf(15),
+            Node::leaf(25)
         ),
-        Box::new(
-            Node::complete(
-                5,
-                Box::new(Node::leaf(1)),
-                Box::new(Node::leaf(8))
-            )
+        Node::complete(
+            5,
+            Node::leaf(1),
+            Node::leaf(8)
         ),
     );
     bt.set_root(root);

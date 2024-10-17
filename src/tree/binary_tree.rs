@@ -7,11 +7,11 @@ pub struct Node<T> {
 
 impl<T: std::cmp::PartialEq + Copy> Node<T> {
 
-    pub fn complete(value: T, left: Box<Node<T>>, right: Box<Node<T>>) -> Self {
+    pub fn complete(value: T, left: Node<T>, right: Node<T>) -> Self {
         Self {
             value,
-            left: Some(left),
-            right: Some(right),
+            left: Some(Box::new(left)),
+            right: Some(Box::new(right)),
         }
     } 
 
@@ -23,19 +23,19 @@ impl<T: std::cmp::PartialEq + Copy> Node<T> {
         }
     }
 
-    pub fn with_left(value: T, left: Box<Node<T>>) -> Self {
+    pub fn with_left(value: T, left: Node<T>) -> Self {
         Self {
             value,
-            left: Some(left),
+            left: Some(Box::new(left)),
             right: None,
         }
     }
 
-    pub fn with_right(value: T, right: Box<Node<T>>) -> Self {
+    pub fn with_right(value: T, right: Node<T>) -> Self {
         Self {
             value,
             left: None,
-            right: Some(right),
+            right: Some(Box::new(right)),
         }
     }
 
