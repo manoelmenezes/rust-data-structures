@@ -4,7 +4,7 @@ use rds::tree::binary_tree::BinaryTree;
 use rds::tree::Node;
 use rds::tree::bst::BST;
 
-fn main() ->Result<(), String> {
+fn main() -> Result<(), String> {
     let mut graph = Graph::new(6);
     graph.add_edge(0, 1)?;
     graph.add_edge(1, 2)?;
