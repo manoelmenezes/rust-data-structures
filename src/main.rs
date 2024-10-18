@@ -1,7 +1,8 @@
 use rds::graph::Graph;
 use rds::graph::weighted::Graph as WeightedGraph;
 use rds::tree::binary_tree::BinaryTree;
-use rds::tree::binary_tree::Node;
+use rds::tree::Node;
+use rds::tree::bst::BST;
 
 fn main() ->Result<(), String> {
     let mut graph = Graph::new(6);
@@ -55,6 +56,19 @@ fn main() ->Result<(), String> {
     println!("Contains 1? {}", bt.contains(1));
     println!("Contains 8? {}", bt.contains(8));
     println!("Contains 100? {}", bt.contains(100));
+
+    let mut bst = BST::<i32>::new();
+
+    bst.insert(10);
+    bst.insert(20);
+    bst.insert(5);
+    bst.insert(8);
+    bst.insert(1);
+    bst.insert(15);
+    bst.insert(25);
+
+    println!("BST elements {:#?}", bst.as_vec());
+
     Ok(())
 }    
 
