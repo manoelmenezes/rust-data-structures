@@ -125,8 +125,8 @@ mod tests {
     fn contains() {
         let node = Node::<i32>::complete(
             0,
-            Node{value:-1, left:None, right: None},
-            Node{value:1, left:None, right: None},
+            Node::leaf(-1),
+            Node::leaf(1),
         );
         assert!(node.contains(0));
         assert!(node.contains(-1));
